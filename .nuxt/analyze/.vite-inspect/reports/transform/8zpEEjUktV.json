@@ -1,0 +1,237 @@
+{
+  "resolvedId": "C:/Users/Omar/Desktop/creaticve Design/layouts/default.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport { useI18n } from 'vue-i18n'\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'default',\n  setup(__props) {\n\r\nconst { t } = useI18n()\r\n\r\nuseHead({\r\n  title: t('app_name'),\r\n})\r\n\r\nconst route = useRoute()\r\nconst isFullWidth = computed(() => route.name === 'index' || route.meta.fullWidth)\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_NuxtPage)\n  ]))\n}\n}\n\n})",
+      "start": 1712600375148,
+      "end": 1712600375148
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712600375149,
+      "end": 1712600375149,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712600375149,
+      "end": 1712600375149,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1712600375149,
+      "end": 1712600375149,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712600375149,
+      "end": 1712600375149,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712600375149,
+      "end": 1712600375149,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nimport { useI18n } from \"vue-i18n\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"default\",\n  setup(__props) {\n    const { t } = useI18n();\n    useHead({\n      title: t(\"app_name\")\n    });\n    const route = useRoute();\n    const isFullWidth = computed(() => route.name === \"index\" || route.meta.fullWidth);\n    return (_ctx, _cache) => {\n      const _component_NuxtPage = _resolveComponent(\"NuxtPage\");\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(_component_NuxtPage)\n      ]);\n    };\n  }\n});\n",
+      "start": 1712600375149,
+      "end": 1712600375360,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/Omar/Desktop/creaticve Design/layouts/default.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport { useI18n } from 'vue-i18n'\r\n\r\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'default',\n  setup(__props) {\n\r\nconst { t } = useI18n()\r\n\r\nuseHead({\r\n  title: t('app_name'),\r\n})\r\n\r\nconst route = useRoute()\r\nconst isFullWidth = computed(() => route.name === 'index' || route.meta.fullWidth)\r\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_NuxtPage)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,oBAAoB,mBAAmB,eAAe,cAAc,aAAa,YAAY,sBAAsB,2BAA2B;AAEvJ,SAAS,eAAe;AAGxB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,EAAE,EAAE,IAAI,QAAQ;AAEtB,YAAQ;AAAA,MACN,OAAO,EAAE,UAAU;AAAA,IACrB,CAAC;AAED,UAAM,QAAQ,SAAS;AACvB,UAAM,cAAc,SAAS,MAAM,MAAM,SAAS,WAAW,MAAM,KAAK,SAAS;AAEjF,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,sBAAsB,kBAAkB,UAAU;AAExD,aAAQ,WAAW,GAAG,oBAAoB,OAAO,MAAM;AAAA,QACrD,aAAa,mBAAmB;AAAA,MAClC,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1712600375360,
+      "end": 1712600375360,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712600375360,
+      "end": 1712600375360,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1712600375360,
+      "end": 1712600375360,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712600375360,
+      "end": 1712600375360,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712600375360,
+      "end": 1712600375360,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712600375360,
+      "end": 1712600375361,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1712600375361,
+      "end": 1712600375361,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712600375361,
+      "end": 1712600375361,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712600375361,
+      "end": 1712600375362,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712600375362,
+      "end": 1712600375362,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1712600375362,
+      "end": 1712600375362,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712600375362,
+      "end": 1712600375362,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712600375362,
+      "end": 1712600375362,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712600375362,
+      "end": 1712600375363,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712600375363,
+      "end": 1712600375363,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712600375363,
+      "end": 1712600375363,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712600375363,
+      "end": 1712600375363,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712600375363,
+      "end": 1712600375363,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712600375363,
+      "end": 1712600375363,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { useHead } from '@unhead/vue';\nimport { useRoute } from '#app/composables/router';\nimport { computed } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nimport { useI18n } from \"vue-i18n\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"default\",\n  setup(__props) {\n    const { t } = useI18n();\n    useHead({\n      title: t(\"app_name\")\n    });\n    const route = useRoute();\n    const isFullWidth = computed(() => route.name === \"index\" || route.meta.fullWidth);\n    return (_ctx, _cache) => {\n      const _component_NuxtPage = _resolveComponent(\"NuxtPage\");\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(_component_NuxtPage)\n      ]);\n    };\n  }\n});\n",
+      "start": 1712600375363,
+      "end": 1712600375367,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7J,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACT,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712600375367,
+      "end": 1712600375368,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712600375368,
+      "end": 1712600375368,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1712600375368,
+      "end": 1712600375368,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1712600375368,
+      "end": 1712600375368,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/Omar/Desktop/creaticve Design/node_modules/nuxt/dist/pages/runtime/page\";\nimport { useHead } from '@unhead/vue';\nimport { useRoute } from '#app/composables/router';\nimport { computed } from 'vue';\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nimport { useI18n } from \"vue-i18n\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"default\",\n  setup(__props) {\n    const { t } = useI18n();\n    useHead({\n      title: t(\"app_name\")\n    });\n    const route = useRoute();\n    const isFullWidth = computed(() => route.name === \"index\" || route.meta.fullWidth);\n    return (_ctx, _cache) => {\n      const _component_NuxtPage = __nuxt_component_0;\n      return _openBlock(), _createElementBlock(\"div\", null, [\n        _createVNode(_component_NuxtPage)\n      ]);\n    };\n  }\n});\n",
+      "start": 1712600375369,
+      "end": 1712600375369,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1712600375369,
+      "end": 1712600375369,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712600375369,
+      "end": 1712600375370,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712600375371,
+      "end": 1712600375371,
+      "order": "normal"
+    }
+  ]
+}

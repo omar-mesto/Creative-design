@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/Omar/Desktop/creaticve Design/stores/auth.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineStore } from 'pinia'\r\n\r\nexport interface AuthUser extends Record<string, any> {}\r\n\r\nexport interface AuthState {\r\n  loggedIn: boolean\r\n  user: AuthUser | null\r\n  loading: boolean\r\n}\r\n\r\nexport const useAuthStore = defineStore({\r\n  id: 'auth',\r\n  state: (): AuthState => {\r\n    const { token, user } = useAuthStorage()\r\n\r\n    return {\r\n      loggedIn: !!token.value,\r\n      user: user.value,\r\n      loading: false,\r\n    }\r\n  },\r\n  actions: {\r\n    logout() {\r\n      const { clear } = useAuthStorage()\r\n      clear()\r\n\r\n      this.loggedIn = false\r\n      this.user = null\r\n    },\r\n  },\r\n})\r\n",
+      "start": 1712600387427,
+      "end": 1712600388103,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712600388103,
+      "end": 1712600388103,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712600388103,
+      "end": 1712600388103,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712600388103,
+      "end": 1712600388104,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712600388103,
+      "end": 1712600388104,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1712600388104,
+      "end": 1712600388104,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1712600388104,
+      "end": 1712600388104,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712600388104,
+      "end": 1712600388104,
+      "order": "pre"
+    },
+    {
+      "name": "server-only-component-transform",
+      "start": 1712600388104,
+      "end": 1712600388104,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712600388104,
+      "end": 1712600388104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineStore } from \"pinia\";\nexport const useAuthStore = defineStore({\n  id: \"auth\",\n  state: () => {\n    const { token, user } = useAuthStorage();\n    return {\n      loggedIn: !!token.value,\n      user: user.value,\n      loading: false\n    };\n  },\n  actions: {\n    logout() {\n      const { clear } = useAuthStorage();\n      clear();\n      this.loggedIn = false;\n      this.user = null;\n    }\n  }\n});\n",
+      "start": 1712600388104,
+      "end": 1712600388884,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/Omar/Desktop/creaticve Design/stores/auth.ts"
+        ],
+        "sourcesContent": [
+          "import { defineStore } from 'pinia'\r\n\r\nexport interface AuthUser extends Record<string, any> {}\r\n\r\nexport interface AuthState {\r\n  loggedIn: boolean\r\n  user: AuthUser | null\r\n  loading: boolean\r\n}\r\n\r\nexport const useAuthStore = defineStore({\r\n  id: 'auth',\r\n  state: (): AuthState => {\r\n    const { token, user } = useAuthStorage()\r\n\r\n    return {\r\n      loggedIn: !!token.value,\r\n      user: user.value,\r\n      loading: false,\r\n    }\r\n  },\r\n  actions: {\r\n    logout() {\r\n      const { clear } = useAuthStorage()\r\n      clear()\r\n\r\n      this.loggedIn = false\r\n      this.user = null\r\n    },\r\n  },\r\n})\r\n"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB;AAUrB,aAAM,eAAe,YAAY;AAAA,EACtC,IAAI;AAAA,EACJ,OAAO,MAAiB;AACtB,UAAM,EAAE,OAAO,KAAK,IAAI,eAAe;AAEvC,WAAO;AAAA,MACL,UAAU,CAAC,CAAC,MAAM;AAAA,MAClB,MAAM,KAAK;AAAA,MACX,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACA,SAAS;AAAA,IACP,SAAS;AACP,YAAM,EAAE,MAAM,IAAI,eAAe;AACjC,YAAM;AAEN,WAAK,WAAW;AAChB,WAAK,OAAO;AAAA,IACd;AAAA,EACF;AACF,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1712600388884,
+      "end": 1712600388884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712600388884,
+      "end": 1712600388884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1712600388884,
+      "end": 1712600388885,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712600388885,
+      "end": 1712600388885,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712600388885,
+      "end": 1712600388885,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712600388885,
+      "end": 1712600388885,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712600388885,
+      "end": 1712600388885,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712600388885,
+      "end": 1712600388885,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712600388885,
+      "end": 1712600388885,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712600388885,
+      "end": 1712600388885,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712600388885,
+      "end": 1712600388886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712600388886,
+      "end": 1712600388886,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { useAuthStorage } from 'C:/Users/Omar/Desktop/creaticve Design/composables/auth.ts';\nimport { defineStore } from \"pinia\";\nexport const useAuthStore = defineStore({\n  id: \"auth\",\n  state: () => {\n    const { token, user } = useAuthStorage();\n    return {\n      loggedIn: !!token.value,\n      user: user.value,\n      loading: false\n    };\n  },\n  actions: {\n    logout() {\n      const { clear } = useAuthStorage();\n      clear();\n      this.loggedIn = false;\n      this.user = null;\n    }\n  }\n});\n",
+      "start": 1712600388886,
+      "end": 1712600388887,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACd,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACd,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC;AACL,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { useAuthStorage } from 'C:/Users/Omar/Desktop/creaticve Design/composables/auth.ts';\nimport { defineStore } from \"pinia\";\nexport const useAuthStore = defineStore({\n  id: \"auth\",\n  state: () => {\n    const { token, user } = useAuthStorage();\n    return {\n      loggedIn: !!token.value,\n      user: user.value,\n      loading: false\n    };\n  },\n  actions: {\n    logout() {\n      const { clear } = useAuthStorage();\n      clear();\n      this.loggedIn = false;\n      this.user = null;\n    }\n  }\n});\n",
+      "start": 1712600388886,
+      "end": 1712600388887,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712600388888,
+      "end": 1712600388888,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712600388888,
+      "end": 1712600388888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712600388888,
+      "end": 1712600388888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712600388888,
+      "end": 1712600388888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1712600388888,
+      "end": 1712600388888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1712600388888,
+      "end": 1712600388888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1712600388888,
+      "end": 1712600388888,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712600388888,
+      "end": 1712600388888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712600388888,
+      "end": 1712600388888,
+      "order": "normal"
+    }
+  ]
+}

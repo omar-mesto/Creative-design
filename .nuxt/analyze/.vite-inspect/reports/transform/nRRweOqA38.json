@@ -1,0 +1,237 @@
+{
+  "resolvedId": "C:/Users/Omar/Desktop/creaticve Design/middleware/auth.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { useAuthStore } from '~~/stores/auth'\r\n\r\nexport default defineNuxtRouteMiddleware((to) => {\r\n  const auth = useAuthStore()\r\n  const router = useRouter()\r\n\r\n  if (!auth.loggedIn) {\r\n    return router.push({\r\n      path: '/auth/login',\r\n      query: {\r\n        next: to.path,\r\n      },\r\n    })\r\n  }\r\n})\r\n",
+      "start": 1712600371958,
+      "end": 1712600372176,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712600372176,
+      "end": 1712600372176,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712600372176,
+      "end": 1712600372176,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1712600372176,
+      "end": 1712600372176,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712600372176,
+      "end": 1712600372176,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712600372176,
+      "end": 1712600372176,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { useAuthStore } from \"~~/stores/auth\";\nexport default defineNuxtRouteMiddleware((to) => {\n  const auth = useAuthStore();\n  const router = useRouter();\n  if (!auth.loggedIn) {\n    return router.push({\n      path: \"/auth/login\",\n      query: {\n        next: to.path\n      }\n    });\n  }\n});\n",
+      "start": 1712600372176,
+      "end": 1712600372275,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/Omar/Desktop/creaticve Design/middleware/auth.ts"
+        ],
+        "sourcesContent": [
+          "import { useAuthStore } from '~~/stores/auth'\r\n\r\nexport default defineNuxtRouteMiddleware((to) => {\r\n  const auth = useAuthStore()\r\n  const router = useRouter()\r\n\r\n  if (!auth.loggedIn) {\r\n    return router.push({\r\n      path: '/auth/login',\r\n      query: {\r\n        next: to.path,\r\n      },\r\n    })\r\n  }\r\n})\r\n"
+        ],
+        "mappings": "AAAA,SAAS,oBAAoB;AAE7B,eAAe,0BAA0B,CAAC,OAAO;AAC/C,QAAM,OAAO,aAAa;AAC1B,QAAM,SAAS,UAAU;AAEzB,MAAI,CAAC,KAAK,UAAU;AAClB,WAAO,OAAO,KAAK;AAAA,MACjB,MAAM;AAAA,MACN,OAAO;AAAA,QACL,MAAM,GAAG;AAAA,MACX;AAAA,IACF,CAAC;AAAA,EACH;AACF,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1712600372275,
+      "end": 1712600372275,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712600372275,
+      "end": 1712600372275,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1712600372276,
+      "end": 1712600372276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712600372276,
+      "end": 1712600372276,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712600372277,
+      "end": 1712600372277,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712600372277,
+      "end": 1712600372277,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1712600372277,
+      "end": 1712600372277,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712600372277,
+      "end": 1712600372278,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712600372278,
+      "end": 1712600372278,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712600372278,
+      "end": 1712600372278,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1712600372278,
+      "end": 1712600372278,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712600372278,
+      "end": 1712600372278,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712600372278,
+      "end": 1712600372278,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712600372278,
+      "end": 1712600372278,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712600372278,
+      "end": 1712600372279,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712600372279,
+      "end": 1712600372279,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712600372281,
+      "end": 1712600372281,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712600372281,
+      "end": 1712600372281,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712600372282,
+      "end": 1712600372282,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { defineNuxtRouteMiddleware, useRouter } from '#app/composables/router';\nimport { useAuthStore } from \"~~/stores/auth\";\nexport default defineNuxtRouteMiddleware((to) => {\n  const auth = useAuthStore();\n  const router = useRouter();\n  if (!auth.loggedIn) {\n    return router.push({\n      path: \"/auth/login\",\n      query: {\n        next: to.path\n      }\n    });\n  }\n});\n",
+      "start": 1712600372282,
+      "end": 1712600372288,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACd,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712600372290,
+      "end": 1712600372291,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712600372291,
+      "end": 1712600372291,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1712600372292,
+      "end": 1712600372292,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1712600372292,
+      "end": 1712600372292,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1712600372293,
+      "end": 1712600372293,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1712600372293,
+      "end": 1712600372293,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712600372293,
+      "end": 1712600372294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712600372294,
+      "end": 1712600372294,
+      "order": "normal"
+    }
+  ]
+}

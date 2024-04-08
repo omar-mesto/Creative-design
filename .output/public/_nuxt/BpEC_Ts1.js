@@ -1,0 +1,1 @@
+import{f as r,g as u}from"./Bs1LcKuE.js";import{u as s}from"./LaEKF3SZ.js";import"./o5-9xCJ9.js";const p=r(t=>{const e=s(),o=u();if(e.loggedIn)return o.push({path:"/dashboard",query:{from:t.path}})});export{p as default};

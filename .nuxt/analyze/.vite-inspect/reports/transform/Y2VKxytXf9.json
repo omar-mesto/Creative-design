@@ -1,0 +1,218 @@
+{
+  "resolvedId": "virtual:nuxt:C:/Users/Omar/Desktop/creaticve Design/.nuxt/i18n.internal.mjs",
+  "transforms": [
+    {
+      "name": "virtual",
+      "result": "import { isVue3, isVue2 } from \"vue-demi\";\nimport { isArray, isString, isFunction } from \"@intlify/shared\";\nimport {\n  findBrowserLocale,\n  getLocalesRegex,\n  isI18nInstance,\n  isComposer,\n  isExportedGlobalComposer,\n  isVueI18n\n} from \"vue-i18n-routing\";\nimport JsCookie from \"js-cookie\";\nimport { parse, serialize } from \"cookie-es\";\nimport { nuxtI18nOptionsDefault, nuxtI18nInternalOptions, localeMessages } from \"#build/i18n.options.mjs\";\nexport function formatMessage(message) {\n  return \"[@nuxtjs/i18n] \" + message;\n}\nfunction isLegacyVueI18n(target) {\n  return target != null && (\"__VUE_I18N_BRIDGE__\" in target || \"_sync\" in target);\n}\nexport function callVueI18nInterfaces(i18n, name, ...args) {\n  const target = isI18nInstance(i18n) ? i18n.global : i18n;\n  const [obj, method] = isComposer(target) ? isVue2 && isLegacyVueI18n(i18n) ? [i18n, i18n[name]] : [target, target[name]] : isExportedGlobalComposer(target) || isVueI18n(target) || isLegacyVueI18n(target) ? [target, target[name]] : [target, target[name]];\n  return Reflect.apply(method, obj, [...args]);\n}\nexport function getVueI18nPropertyValue(i18n, name) {\n  const target = isI18nInstance(i18n) ? i18n.global : i18n;\n  const ret = isComposer(target) ? isVue2 && isLegacyVueI18n(i18n) ? i18n[name] : target[name].value : isExportedGlobalComposer(target) || isVueI18n(target) || isLegacyVueI18n(target) ? target[name] : target[name];\n  return ret;\n}\nexport function defineGetter(obj, key, val) {\n  Object.defineProperty(obj, key, { get: () => val });\n}\nexport function proxyNuxt(nuxt, target) {\n  return function() {\n    return Reflect.apply(\n      target,\n      {\n        i18n: nuxt.$i18n,\n        getRouteBaseName: nuxt.$getRouteBaseName,\n        localePath: nuxt.$localePath,\n        localeRoute: nuxt.$localeRoute,\n        switchLocalePath: nuxt.$switchLocalePath,\n        localeHead: nuxt.$localeHead,\n        route: nuxt.$router.currentRoute.value,\n        router: nuxt.$router,\n        store: void 0\n      },\n      arguments\n    );\n  };\n}\nexport function parseAcceptLanguage(input) {\n  return input.split(\",\").map((tag) => tag.split(\";\")[0]);\n}\nasync function loadMessage(context, locale) {\n  let message = null;\n  const loader = localeMessages[locale];\n  if (loader) {\n    try {\n      const getter = await loader().then((r) => r.default || r);\n      if (isFunction(getter)) {\n        console.error(formatMessage(\"Not support executable file (e.g. js, cjs, mjs)\"));\n      } else {\n        message = getter;\n      }\n    } catch (e) {\n      console.error(formatMessage(\"Failed locale loading: \" + e.message));\n    }\n  } else {\n    console.warn(formatMessage(\"Could not find \" + locale + \" locale\"));\n  }\n  return message;\n}\nconst loadedLocales = [];\nexport async function loadLocale(context, locale, setter) {\n  if (process.server || process.dev || !loadedLocales.includes(locale)) {\n    const message = await loadMessage(context, locale);\n    if (message != null) {\n      setter(locale, message);\n      loadedLocales.push(locale);\n    }\n  }\n}\nexport function getBrowserLocale(options, context) {\n  let ret;\n  if (process.client) {\n    if (navigator.languages) {\n      ret = findBrowserLocale(options.__normalizedLocales, navigator.languages);\n    }\n  } else if (process.server) {\n    if (!isVue3) {\n      if (context.req && typeof context.req.headers[\"accept-language\"] !== \"undefined\") {\n        ret = findBrowserLocale(\n          options.__normalizedLocales,\n          parseAcceptLanguage(context.req.headers[\"accept-language\"])\n        );\n      }\n    } else {\n      throw new Error(\"Not implement for nuxt3 options API style\");\n    }\n  }\n  return ret;\n}\nexport function getLocaleCookie(context, {\n  useCookie = nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,\n  cookieKey = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,\n  localeCodes = []\n} = {}) {\n  if (useCookie) {\n    let localeCode;\n    if (process.client) {\n      localeCode = JsCookie.get(cookieKey);\n    } else if (process.server) {\n      if (context.req && typeof context.req.headers.cookie !== \"undefined\") {\n        const cookies = context.req.headers && context.req.headers.cookie ? parse(context.req.headers.cookie) : {};\n        localeCode = cookies[cookieKey];\n      }\n    }\n    if (localeCode && localeCodes.includes(localeCode)) {\n      return localeCode;\n    }\n  }\n}\nexport function setLocaleCookie(locale, context, {\n  useCookie = nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,\n  cookieKey = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,\n  cookieDomain = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieDomain,\n  cookieSecure = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieSecure,\n  cookieCrossOrigin = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieCrossOrigin\n} = {}) {\n  if (!useCookie) {\n    return;\n  }\n  const date = new Date();\n  const cookieOptions = {\n    expires: new Date(date.setDate(date.getDate() + 365)),\n    path: \"/\",\n    sameSite: cookieCrossOrigin ? \"none\" : \"lax\",\n    secure: cookieCrossOrigin || cookieSecure\n  };\n  if (cookieDomain) {\n    cookieOptions.domain = cookieDomain;\n  }\n  if (process.client) {\n    JsCookie.set(cookieKey, locale, cookieOptions);\n  } else if (process.server) {\n    if (context.res) {\n      const { res } = context;\n      let headers = res.getHeader(\"Set-Cookie\") || [];\n      if (!isArray(headers)) {\n        headers = [String(headers)];\n      }\n      const redirectCookie = serialize(cookieKey, locale, cookieOptions);\n      headers.push(redirectCookie);\n      res.setHeader(\"Set-Cookie\", headers);\n    }\n  }\n}\nexport function getInitialLocale(context, route, nuxtI18nOptions, localeCodes, routeLocaleGetter, locale = \"\") {\n  const { strategy, defaultLocale, vueI18n } = nuxtI18nOptions;\n  const initialLocale = locale || vueI18n.locale || \"en-US\";\n  const browserLocale = nuxtI18nOptions.detectBrowserLanguage ? detectBrowserLanguage(route, context, nuxtI18nOptions, nuxtI18nInternalOptions, localeCodes, initialLocale) : \"\";\n  let finalLocale = browserLocale;\n  if (!finalLocale) {\n    if (strategy !== \"no_prefix\") {\n      finalLocale = routeLocaleGetter(route);\n    }\n  }\n  if (!finalLocale && nuxtI18nOptions.detectBrowserLanguage && nuxtI18nOptions.detectBrowserLanguage.useCookie) {\n    finalLocale = getLocaleCookie(context, { ...nuxtI18nOptions, localeCodes });\n  }\n  if (!finalLocale) {\n    finalLocale = defaultLocale || \"\";\n  }\n  return finalLocale;\n}\nexport function detectBrowserLanguage(route, context, nuxtI18nOptions, nuxtI18nInternalOptions2, localeCodes = [], locale = \"\") {\n  const { strategy } = nuxtI18nOptions;\n  const { redirectOn, alwaysRedirect, useCookie, fallbackLocale } = nuxtI18nOptions.detectBrowserLanguage;\n  const path = isString(route) ? route : route.path;\n  if (strategy !== \"no_prefix\") {\n    if (redirectOn === \"root\") {\n      if (path !== \"/\") {\n        return \"\";\n      }\n    } else if (redirectOn === \"no prefix\") {\n      if (!alwaysRedirect && path.match(getLocalesRegex(localeCodes))) {\n        return \"\";\n      }\n    }\n  }\n  const cookieLocale = getLocaleCookie(context, { ...nuxtI18nOptions, localeCodes });\n  let matchedLocale = cookieLocale;\n  if (!useCookie) {\n    matchedLocale = getBrowserLocale(nuxtI18nInternalOptions2, context);\n  }\n  const finalLocale = matchedLocale || fallbackLocale;\n  const vueI18nLocale = locale || nuxtI18nOptions.vueI18n.locale;\n  if (finalLocale && (!useCookie || alwaysRedirect || !cookieLocale)) {\n    if (finalLocale !== vueI18nLocale) {\n      return finalLocale;\n    }\n  }\n  return \"\";\n}\n",
+      "start": 1712600371337,
+      "end": 1712600371337,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1712600371337,
+      "end": 1712600371337,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1712600371337,
+      "end": 1712600371337,
+      "order": "pre"
+    },
+    {
+      "name": "content-slot",
+      "start": 1712600371338,
+      "end": 1712600371338,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1712600371338,
+      "end": 1712600371338,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1712600371338,
+      "end": 1712600371338,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1712600371339,
+      "end": 1712600371339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1712600371339,
+      "end": 1712600371339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1712600371340,
+      "end": 1712600371340,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1712600371340,
+      "end": 1712600371340,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1712600371340,
+      "end": 1712600371340,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712600371340,
+      "end": 1712600371340,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1712600371340,
+      "end": 1712600371340,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1712600371340,
+      "end": 1712600371341,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1712600371341,
+      "end": 1712600371341,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1712600371341,
+      "end": 1712600371341,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1712600371341,
+      "end": 1712600371341,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { isVue3, isVue2 } from \"vue-demi\";\nimport { isArray, isString, isFunction } from \"@intlify/shared\";\nimport {\n  findBrowserLocale,\n  getLocalesRegex,\n  isI18nInstance,\n  isComposer,\n  isExportedGlobalComposer,\n  isVueI18n\n} from \"vue-i18n-routing\";\nimport JsCookie from \"js-cookie\";\nimport { parse, serialize } from \"cookie-es\";\nimport { nuxtI18nOptionsDefault, nuxtI18nInternalOptions, localeMessages } from \"#build/i18n.options.mjs\";\nexport function formatMessage(message) {\n  return \"[@nuxtjs/i18n] \" + message;\n}\nfunction isLegacyVueI18n(target) {\n  return target != null && (\"__VUE_I18N_BRIDGE__\" in target || \"_sync\" in target);\n}\nexport function callVueI18nInterfaces(i18n, name, ...args) {\n  const target = isI18nInstance(i18n) ? i18n.global : i18n;\n  const [obj, method] = isComposer(target) ? isVue2 && isLegacyVueI18n(i18n) ? [i18n, i18n[name]] : [target, target[name]] : isExportedGlobalComposer(target) || isVueI18n(target) || isLegacyVueI18n(target) ? [target, target[name]] : [target, target[name]];\n  return Reflect.apply(method, obj, [...args]);\n}\nexport function getVueI18nPropertyValue(i18n, name) {\n  const target = isI18nInstance(i18n) ? i18n.global : i18n;\n  const ret = isComposer(target) ? isVue2 && isLegacyVueI18n(i18n) ? i18n[name] : target[name].value : isExportedGlobalComposer(target) || isVueI18n(target) || isLegacyVueI18n(target) ? target[name] : target[name];\n  return ret;\n}\nexport function defineGetter(obj, key, val) {\n  Object.defineProperty(obj, key, { get: () => val });\n}\nexport function proxyNuxt(nuxt, target) {\n  return function() {\n    return Reflect.apply(\n      target,\n      {\n        i18n: nuxt.$i18n,\n        getRouteBaseName: nuxt.$getRouteBaseName,\n        localePath: nuxt.$localePath,\n        localeRoute: nuxt.$localeRoute,\n        switchLocalePath: nuxt.$switchLocalePath,\n        localeHead: nuxt.$localeHead,\n        route: nuxt.$router.currentRoute.value,\n        router: nuxt.$router,\n        store: void 0\n      },\n      arguments\n    );\n  };\n}\nexport function parseAcceptLanguage(input) {\n  return input.split(\",\").map((tag) => tag.split(\";\")[0]);\n}\nasync function loadMessage(context, locale) {\n  let message = null;\n  const loader = localeMessages[locale];\n  if (loader) {\n    try {\n      const getter = await loader().then((r) => r.default || r);\n      if (isFunction(getter)) {\n        console.error(formatMessage(\"Not support executable file (e.g. js, cjs, mjs)\"));\n      } else {\n        message = getter;\n      }\n    } catch (e) {\n      console.error(formatMessage(\"Failed locale loading: \" + e.message));\n    }\n  } else {\n    console.warn(formatMessage(\"Could not find \" + locale + \" locale\"));\n  }\n  return message;\n}\nconst loadedLocales = [];\nexport async function loadLocale(context, locale, setter) {\n  if (!loadedLocales.includes(locale)) {\n    const message = await loadMessage(context, locale);\n    if (message != null) {\n      setter(locale, message);\n      loadedLocales.push(locale);\n    }\n  }\n}\nexport function getBrowserLocale(options, context) {\n  let ret;\n  if (true) {\n    if (navigator.languages) {\n      ret = findBrowserLocale(options.__normalizedLocales, navigator.languages);\n    }\n  } else if (false) {\n    if (!isVue3) {\n      if (context.req && typeof context.req.headers[\"accept-language\"] !== \"undefined\") {\n        ret = findBrowserLocale(\n          options.__normalizedLocales,\n          parseAcceptLanguage(context.req.headers[\"accept-language\"])\n        );\n      }\n    } else {\n      throw new Error(\"Not implement for nuxt3 options API style\");\n    }\n  }\n  return ret;\n}\nexport function getLocaleCookie(context, {\n  useCookie = nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,\n  cookieKey = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,\n  localeCodes = []\n} = {}) {\n  if (useCookie) {\n    let localeCode;\n    if (true) {\n      localeCode = JsCookie.get(cookieKey);\n    } else if (false) {\n      if (context.req && typeof context.req.headers.cookie !== \"undefined\") {\n        const cookies = context.req.headers && context.req.headers.cookie ? parse(context.req.headers.cookie) : {};\n        localeCode = cookies[cookieKey];\n      }\n    }\n    if (localeCode && localeCodes.includes(localeCode)) {\n      return localeCode;\n    }\n  }\n}\nexport function setLocaleCookie(locale, context, {\n  useCookie = nuxtI18nOptionsDefault.detectBrowserLanguage.useCookie,\n  cookieKey = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieKey,\n  cookieDomain = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieDomain,\n  cookieSecure = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieSecure,\n  cookieCrossOrigin = nuxtI18nOptionsDefault.detectBrowserLanguage.cookieCrossOrigin\n} = {}) {\n  if (!useCookie) {\n    return;\n  }\n  const date = /* @__PURE__ */ new Date();\n  const cookieOptions = {\n    expires: new Date(date.setDate(date.getDate() + 365)),\n    path: \"/\",\n    sameSite: cookieCrossOrigin ? \"none\" : \"lax\",\n    secure: cookieCrossOrigin || cookieSecure\n  };\n  if (cookieDomain) {\n    cookieOptions.domain = cookieDomain;\n  }\n  if (true) {\n    JsCookie.set(cookieKey, locale, cookieOptions);\n  } else if (false) {\n    if (context.res) {\n      const { res } = context;\n      let headers = res.getHeader(\"Set-Cookie\") || [];\n      if (!isArray(headers)) {\n        headers = [String(headers)];\n      }\n      const redirectCookie = serialize(cookieKey, locale, cookieOptions);\n      headers.push(redirectCookie);\n      res.setHeader(\"Set-Cookie\", headers);\n    }\n  }\n}\nexport function getInitialLocale(context, route, nuxtI18nOptions, localeCodes, routeLocaleGetter, locale = \"\") {\n  const { strategy, defaultLocale, vueI18n } = nuxtI18nOptions;\n  const initialLocale = locale || vueI18n.locale || \"en-US\";\n  const browserLocale = nuxtI18nOptions.detectBrowserLanguage ? detectBrowserLanguage(route, context, nuxtI18nOptions, nuxtI18nInternalOptions, localeCodes, initialLocale) : \"\";\n  let finalLocale = browserLocale;\n  if (!finalLocale) {\n    if (strategy !== \"no_prefix\") {\n      finalLocale = routeLocaleGetter(route);\n    }\n  }\n  if (!finalLocale && nuxtI18nOptions.detectBrowserLanguage && nuxtI18nOptions.detectBrowserLanguage.useCookie) {\n    finalLocale = getLocaleCookie(context, { ...nuxtI18nOptions, localeCodes });\n  }\n  if (!finalLocale) {\n    finalLocale = defaultLocale || \"\";\n  }\n  return finalLocale;\n}\nexport function detectBrowserLanguage(route, context, nuxtI18nOptions, nuxtI18nInternalOptions2, localeCodes = [], locale = \"\") {\n  const { strategy } = nuxtI18nOptions;\n  const { redirectOn, alwaysRedirect, useCookie, fallbackLocale } = nuxtI18nOptions.detectBrowserLanguage;\n  const path = isString(route) ? route : route.path;\n  if (strategy !== \"no_prefix\") {\n    if (redirectOn === \"root\") {\n      if (path !== \"/\") {\n        return \"\";\n      }\n    } else if (redirectOn === \"no prefix\") {\n      if (!alwaysRedirect && path.match(getLocalesRegex(localeCodes))) {\n        return \"\";\n      }\n    }\n  }\n  const cookieLocale = getLocaleCookie(context, { ...nuxtI18nOptions, localeCodes });\n  let matchedLocale = cookieLocale;\n  if (!useCookie) {\n    matchedLocale = getBrowserLocale(nuxtI18nInternalOptions2, context);\n  }\n  const finalLocale = matchedLocale || fallbackLocale;\n  const vueI18nLocale = locale || nuxtI18nOptions.vueI18n.locale;\n  if (finalLocale && (!useCookie || alwaysRedirect || !cookieLocale)) {\n    if (finalLocale !== vueI18nLocale) {\n      return finalLocale;\n    }\n  }\n  return \"\";\n}\n",
+      "start": 1712600371344,
+      "end": 1712600371442,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1712600371442,
+      "end": 1712600371442,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1712600371442,
+      "end": 1712600371442,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1712600371442,
+      "end": 1712600371442,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1712600371442,
+      "end": 1712600371442,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1712600371443,
+      "end": 1712600371443,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1712600371443,
+      "end": 1712600371443,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1712600371443,
+      "end": 1712600371443,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1712600371443,
+      "end": 1712600371443,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1712600371443,
+      "end": 1712600371448,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1712600371449,
+      "end": 1712600371449,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1712600371449,
+      "end": 1712600371449,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1712600371449,
+      "end": 1712600371449,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1712600371449,
+      "end": 1712600371449,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1712600371449,
+      "end": 1712600371449,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1712600371449,
+      "end": 1712600371450,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1712600371450,
+      "end": 1712600371451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712600371451,
+      "end": 1712600371451,
+      "order": "normal"
+    }
+  ]
+}

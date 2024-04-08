@@ -1,0 +1,17 @@
+{
+  "resolvedId": "C:/Users/Omar/Desktop/creaticve Design/node_modules/nuxt/dist/app/types.js",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "",
+      "start": 1712600387422,
+      "end": 1712600387422
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1712600387422,
+      "end": 1712600387422,
+      "order": "normal"
+    }
+  ]
+}

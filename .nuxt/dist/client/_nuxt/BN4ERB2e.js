@@ -1,0 +1,1 @@
+import{m as n,ad as o,u as s,k as c,y as u,o as _,c as m,b as p,ac as r}from"./Bs1LcKuE.js";const x=n({__name:"default",setup(d){const{t}=o();s({title:t("app_name")});const e=c();return u(()=>e.name==="index"||e.meta.fullWidth),(l,i)=>{const a=r;return _(),m("div",null,[p(a)])}}});export{x as default};

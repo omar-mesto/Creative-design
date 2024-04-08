@@ -1,0 +1,1 @@
+import{m as s,ad as t,u as o,o as n,c,b as _,ac as r}from"./Bs1LcKuE.js";import{u as m}from"./DxRwwYQL.js";const p=()=>m("sidebar",()=>!1),u={class:""},x=s({__name:"dashboard",setup(d){const{t:e}=t();return o({title:e("app_name")}),p(),(i,l)=>{const a=r;return n(),c("div",u,[_(a)])}}});export{x as default};
