@@ -107,7 +107,7 @@
         "../node_modules/pinia/dist/pinia"
       ],
       "vue-i18n": [
-        "../node_modules/vue-i18n/dist/vue-i18n.runtime.esm-bundler"
+        "../node_modules/vue-i18n/dist/vue-i18n.esm-bundler"
       ],
       "@intlify/shared": [
         "../node_modules/@intlify/shared/dist/shared.esm-bundler"
@@ -146,7 +146,6 @@
   ],
   "exclude": [
     "../node_modules",
-    "../../../node_modules",
     "../node_modules/nuxt/node_modules",
     "../dist"
   ]

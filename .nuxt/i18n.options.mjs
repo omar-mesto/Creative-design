@@ -6,7 +6,7 @@ export const localeMessages = {
 export const resolveNuxtI18nOptions = async (context) => {
   const nuxtI18nOptions = Object({})
   const vueI18nOptionsLoader = async (context) => Object({"legacy":false,"locale":"en","messages": Object({"en":{
-  "app_name": (ctx) => {const { normalize: _normalize } = ctx;return _normalize(["Creative Design"])}
+  "app_name": (()=>{const fn=(ctx) => {const { normalize: _normalize } = ctx;return _normalize(["Creative Design"])};fn.source="Creative Design";return fn;})()
 },}),})
   nuxtI18nOptions.vueI18n = await vueI18nOptionsLoader(context)
   nuxtI18nOptions.locales = ["en","id"]

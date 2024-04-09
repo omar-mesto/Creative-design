@@ -19,6 +19,7 @@ module.exports = {
     './node_modules/windplus/styles/**/*.{vue,js,css}',
     './node_modules/windplus/styles/*.{vue,js,css}',
     './node_modules/windplus/styles/main.css',
+    "./node_modules/flowbite/**/*.{js,ts}"
   ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
@@ -56,5 +57,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'),require('flowbite/plugin')],
 }

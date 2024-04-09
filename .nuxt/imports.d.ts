@@ -42,4 +42,5 @@ export { parseMarkdown } from '../node_modules/@nuxtjs/mdc/dist/runtime/parser';
 export { usePinia } from '../node_modules/@pinia/nuxt/dist/runtime/composables';
 export { useI18n } from '@intlify/vue-i18n-bridge';
 export { useRouteBaseName, useLocalePath, useLocaleRoute, useSwitchLocalePath, useLocaleHead, useBrowserLocale, useCookieLocale } from '../node_modules/@nuxtjs/i18n/dist/runtime/composables';
+export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
