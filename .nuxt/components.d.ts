@@ -1,6 +1,7 @@
 
 interface _GlobalComponents {
-      'SharedNavBar': typeof import("../components/shared/navBar.vue")['default']
+      'HomeHeader': typeof import("../components/Home/header.vue")['default']
+    'SharedNavBar': typeof import("../components/shared/navBar.vue")['default']
     'ContentDoc': typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue")['default']
     'ContentList': typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue")['default']
     'ContentNavigation': typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentNavigation.vue")['default']
@@ -62,7 +63,8 @@ interface _GlobalComponents {
     'Head': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Head']
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
-      'LazySharedNavBar': typeof import("../components/shared/navBar.vue")['default']
+      'LazyHomeHeader': typeof import("../components/Home/header.vue")['default']
+    'LazySharedNavBar': typeof import("../components/shared/navBar.vue")['default']
     'LazyContentDoc': typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue")['default']
     'LazyContentList': typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue")['default']
     'LazyContentNavigation': typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentNavigation.vue")['default']
@@ -138,6 +140,7 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const HomeHeader: typeof import("../components/Home/header.vue")['default']
 export const SharedNavBar: typeof import("../components/shared/navBar.vue")['default']
 export const ContentDoc: typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue")['default']
 export const ContentList: typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue")['default']
@@ -200,6 +203,7 @@ export const Style: typeof import("../node_modules/nuxt/dist/head/runtime/compon
 export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Head']
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
+export const LazyHomeHeader: typeof import("../components/Home/header.vue")['default']
 export const LazySharedNavBar: typeof import("../components/shared/navBar.vue")['default']
 export const LazyContentDoc: typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue")['default']
 export const LazyContentList: typeof import("../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue")['default']

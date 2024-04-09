@@ -16,6 +16,7 @@ const isFullWidth = computed(() => route.name === 'index' || route.meta.fullWidt
   <div class="bg-primary">
     <div class="container mx-auto ">
       <SharedNavBar/>
+      <HomeHeader v-show="useRoute().path=='/'"/>
         <NuxtPage />
     </div>
   </div>
