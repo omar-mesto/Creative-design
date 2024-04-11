@@ -1,6 +1,7 @@
 <template>
     <div>
         <HomeServicesSection/>
+        <HomeProjectSection/>
     </div>
 </template>
 
