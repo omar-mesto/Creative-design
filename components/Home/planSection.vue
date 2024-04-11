@@ -1,5 +1,5 @@
 <template>
-        <div class="container mx-auto pt-10 text-center max-w-screen-lg">
+        <div class="container px-8 sm:px-0 mx-auto pt-10 text-center max-w-screen-lg">
             <p class="font-bold">Pricing Placns</p>
             <h1 class="text-5xl">What Our Clientssays.</h1>
             <div class="grid grid-cols-1 gap-8 py-10 w-full h-full justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

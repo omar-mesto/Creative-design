@@ -1,6 +1,7 @@
 
 interface _GlobalComponents {
-      'HomeHeader': typeof import("../components/Home/header.vue")['default']
+      'HomeAboutSection': typeof import("../components/Home/aboutSection.vue")['default']
+    'HomeHeader': typeof import("../components/Home/header.vue")['default']
     'Home': typeof import("../components/Home/index.vue")['default']
     'HomePlanSection': typeof import("../components/Home/planSection.vue")['default']
     'HomeProjectSection': typeof import("../components/Home/projectSection.vue")['default']
@@ -67,7 +68,8 @@ interface _GlobalComponents {
     'Head': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Head']
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
-      'LazyHomeHeader': typeof import("../components/Home/header.vue")['default']
+      'LazyHomeAboutSection': typeof import("../components/Home/aboutSection.vue")['default']
+    'LazyHomeHeader': typeof import("../components/Home/header.vue")['default']
     'LazyHome': typeof import("../components/Home/index.vue")['default']
     'LazyHomePlanSection': typeof import("../components/Home/planSection.vue")['default']
     'LazyHomeProjectSection': typeof import("../components/Home/projectSection.vue")['default']
@@ -148,6 +150,7 @@ declare module 'vue' {
   export interface GlobalComponents extends _GlobalComponents { }
 }
 
+export const HomeAboutSection: typeof import("../components/Home/aboutSection.vue")['default']
 export const HomeHeader: typeof import("../components/Home/header.vue")['default']
 export const Home: typeof import("../components/Home/index.vue")['default']
 export const HomePlanSection: typeof import("../components/Home/planSection.vue")['default']
@@ -215,6 +218,7 @@ export const Style: typeof import("../node_modules/nuxt/dist/head/runtime/compon
 export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Head']
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
+export const LazyHomeAboutSection: typeof import("../components/Home/aboutSection.vue")['default']
 export const LazyHomeHeader: typeof import("../components/Home/header.vue")['default']
 export const LazyHome: typeof import("../components/Home/index.vue")['default']
 export const LazyHomePlanSection: typeof import("../components/Home/planSection.vue")['default']
