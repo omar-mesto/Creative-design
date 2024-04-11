@@ -2,6 +2,7 @@
     <div>
         <HomeServicesSection/>
         <HomeProjectSection/>
+        <HomePlanSection/>
     </div>
 </template>
 
