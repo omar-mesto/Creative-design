@@ -1,10 +1,9 @@
 <template>
-    <div class="container">
         <HomeServicesSection/>
         <HomeProjectSection/>
         <HomePlanSection/>
         <HomeAboutSection/>
-    </div>
+        <HomeBolgSection/>
 </template>
 
 <script setup>

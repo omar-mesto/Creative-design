@@ -1,6 +1,7 @@
 
 interface _GlobalComponents {
       'HomeAboutSection': typeof import("../components/Home/aboutSection.vue")['default']
+    'HomeBolgSection': typeof import("../components/Home/bolgSection.vue")['default']
     'HomeHeader': typeof import("../components/Home/header.vue")['default']
     'Home': typeof import("../components/Home/index.vue")['default']
     'HomePlanSection': typeof import("../components/Home/planSection.vue")['default']
@@ -69,6 +70,7 @@ interface _GlobalComponents {
     'Html': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
     'Body': typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
       'LazyHomeAboutSection': typeof import("../components/Home/aboutSection.vue")['default']
+    'LazyHomeBolgSection': typeof import("../components/Home/bolgSection.vue")['default']
     'LazyHomeHeader': typeof import("../components/Home/header.vue")['default']
     'LazyHome': typeof import("../components/Home/index.vue")['default']
     'LazyHomePlanSection': typeof import("../components/Home/planSection.vue")['default']
@@ -151,6 +153,7 @@ declare module 'vue' {
 }
 
 export const HomeAboutSection: typeof import("../components/Home/aboutSection.vue")['default']
+export const HomeBolgSection: typeof import("../components/Home/bolgSection.vue")['default']
 export const HomeHeader: typeof import("../components/Home/header.vue")['default']
 export const Home: typeof import("../components/Home/index.vue")['default']
 export const HomePlanSection: typeof import("../components/Home/planSection.vue")['default']
@@ -219,6 +222,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const LazyHomeAboutSection: typeof import("../components/Home/aboutSection.vue")['default']
+export const LazyHomeBolgSection: typeof import("../components/Home/bolgSection.vue")['default']
 export const LazyHomeHeader: typeof import("../components/Home/header.vue")['default']
 export const LazyHome: typeof import("../components/Home/index.vue")['default']
 export const LazyHomePlanSection: typeof import("../components/Home/planSection.vue")['default']
