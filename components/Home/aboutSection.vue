@@ -1,5 +1,6 @@
 <template>
-    <div class="container py-6 px-16 sm:px-0 mx-auto pt-10 text-center max-w-screen-lg">
+    <div class="bg-white">
+        <div class="container py-6 px-16 sm:px-0 mx-auto pt-10 text-center max-w-screen-lg">
         <div class="grid grid-cols-1 md:grid-cols-2">
             <div class="w-5/6">
                 <img src="/aboutHome.png"/>
@@ -38,6 +39,7 @@
                 <button class="text-white mt-4 bg-black hover:text-black hover:bg-white hover:border-black border border-black rounded-lg text-sm p-2">Discover more</button>
             </div>
         </div>
+    </div>
     </div>
 </template>
 <script setup>

@@ -20,6 +20,7 @@ const isFullWidth = computed(() => route.name === 'index' || route.meta.fullWidt
     </div>
     </div>
     <NuxtPage />
+    <sharedFooter/>
 </template>
 <style >
 .bg-primary{
